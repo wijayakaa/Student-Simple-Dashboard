@@ -12,11 +12,13 @@ class Student extends Model
         'nis',
         'nama',
         'tanggal_lahir',
-        'kelas',
-        'alamat',
+        'kelas_id',
+        'alamat'
     ];
+    protected $guarded = ['id'];
 
-    public function kelas(){
-        return $this->belongsTo(kelas::class);
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
     }
 }

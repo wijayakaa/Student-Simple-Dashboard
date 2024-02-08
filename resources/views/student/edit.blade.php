@@ -12,7 +12,15 @@
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Masukan Kelas</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="kelas"value="{{ old('kelas',$student->kelas)}}">
+    <select class="form-select" name="kelas_id">
+                @foreach ($kelas as $Kelas)
+                @if($Kelas->id == $student->kelas_id)
+                <option name="kelas_id" value="{{ $Kelas->id }}" selected>{{ $Kelas->kelas }}</option>
+                @else
+                    <option name="kelas_id" value="{{ $Kelas->id }}">{{ $Kelas->kelas }}</option>
+                @endif
+                @endforeach
+    </select>
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Masukan Kota</label>

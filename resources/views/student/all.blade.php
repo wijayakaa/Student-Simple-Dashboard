@@ -42,10 +42,10 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$student["nis"]}}</td>
                     <td>{{$student["nama"]}}</td>
-                    <td>{{$student["kelas"]}}</td>
+                    <td>{{$student->kelas->kelas}}</td>
                     <td>{{$student["alamat"]}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" href="/student/detail">{{$student->id}}</button>
+                    <a type="button" class="btn btn-primary" href="/student/detail/{{ $student->id }}">Detail</a>
                         <a href="/student/edit/{{$student->id}}" class="btn btn-warning">Edit</a>
 
                         <form action="/student/delete/{{$student->id}}" method="post" class="d-inline">

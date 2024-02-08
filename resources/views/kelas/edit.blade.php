@@ -4,8 +4,6 @@
     <h1>Edit Student</h1>
     <form action="/kelas/update/{{ $kelas->id }}" method="post">
         @csrf
-        @method('PUT')
-
         <div class="form-group">
             <label for="kelas">Kelas:</label>
             <input type="text" name="kelas" id="kelas" class="form-control" value="{{ old( 'kelas', $kelas->kelas)}}" required>

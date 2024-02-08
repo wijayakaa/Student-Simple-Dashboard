@@ -36,8 +36,8 @@ Route::get('/about', function () {
         "foto" => "image/baratha.jpeg"
     ]);
 });
+
 Route::group(["prefix" => "/student"], function(){
-    //student controller
     Route::get("/all", [StudentController::class, 'index']);
     Route::get("/detail/{student}", [StudentController::class, 'show']);
     Route::get("/create", [StudentController::class, 'create']);
