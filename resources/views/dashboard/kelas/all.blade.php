@@ -1,4 +1,4 @@
-@extends('layout\partial\dashboard')
+@extends('layout.partial.dashboard')
 
 <style>
     table {

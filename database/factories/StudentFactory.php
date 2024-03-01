@@ -1,15 +1,14 @@
 <?php
 
 namespace Database\Factories;
-namespace App\Models;
-use App\Models\Student;
 
+use App\Models\Kelas;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Kelas>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Student>
  */
-class KelasFactory extends Factory
+class StudentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +18,11 @@ class KelasFactory extends Factory
     public function definition(): array
     {
         return [
-            'kelas_siswa' => $this->faker->randomElement(['10 PPLG 1', '10 PPLG 2', '11 PPLG 1', '11 PPLG 2']),
+            'nis' => $this->faker->unique()->numberBetween(100000, 999999),
+            'nama' => $this->faker->name(),
+            'tanggal_lahir' => $this->faker->date(),
+            'kelas_id' => $this->faker->numberBetween(1, 4),
+            'alamat' => $this->faker->address(),
         ];
     }
 }

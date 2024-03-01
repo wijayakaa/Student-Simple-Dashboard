@@ -61,9 +61,10 @@ Route::group(["prefix" => "/kelas"], function(){
 });
 
 Route::group(["prefix" => "/Login"], function(){
-    Route::get("/index", [loginController::class, 'index']);
+    Route::get("/index", [loginController::class, 'index'])->name('Login.index');
     Route::post('/add', [loginController::class,'loginStore']);
 });
+
 
 Route::group(["prefix" => "/Register"], function(){
     Route::get("/index", [RegisterController::class, 'index']);
@@ -94,4 +95,8 @@ Route::group(["prefix" => "/dashboard"], function(){
         Route::get('/edit/{kelas}', [DashboardController::class,'kelasEdit']); // provide form edit
         Route::post('/update/{kelas}', [DashboardController::class,'kelasUpdate']); // edit data
     });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');   
 });

@@ -1,4 +1,4 @@
-@extends("layout\partial\dashboard")
+@extends("layout.partial.dashboard")
 
 <style>
     table {
@@ -16,7 +16,7 @@
 <h1>Tabel Data Siswa</h1>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <a class="btn btn-primary" href="dashboard/student/create">Add Data</a>
+
 
     @if(session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -38,9 +38,12 @@
         </thead>
 
         <tbody>
+            @php
+                $no = ($students->currentPage() - 1) * $students->perPage() + 1;
+            @endphp
             @foreach($students as $student)
                 <tr>
-                    <td>{{$loop->iteration}}</td>
+                    <td>{{$no++}}
                     <td>{{$student["nis"]}}</td>
                     <td>{{$student["nama"]}}</td>
                     <td>{{$student->kelas->kelas}}</td>
@@ -59,6 +62,24 @@
             @endforeach
         </tbody>
     </table>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item {{ $students->previousPageUrl() ? '' : 'disabled' }}">
+                <a class="page-link" href="{{ $students->previousPageUrl() }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @foreach ($students->getUrlRange(1, $students->lastPage()) as $page => $url)
+                <li class="page-item {{ $page == $students->currentPage() ? 'active' : '' }}">
+                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                </li>
+            @endforeach
+            <li class="page-item {{ $students->nextPageUrl() ? '' : 'disabled' }}">
+                <a class="page-link" href="{{ $students->nextPageUrl() }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>`
 @endsection

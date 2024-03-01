@@ -46,12 +46,6 @@
                     <td>{{$student["alamat"]}}</td>
                     <td>
                     <a type="button" class="btn btn-primary" href="/student/detail/{{ $student->id }}">Detail</a>
-                        <a href="/student/edit/{{$student->id}}" class="btn btn-warning">Edit</a>
-
-                        <form action="/student/delete/{{$student->id}}" method="post" class="d-inline">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" onclick="return confirm('Are you sure want to delete this?')" class="btn btn-danger">Delete</button>
                         </form>
                     </td>
                 </tr>

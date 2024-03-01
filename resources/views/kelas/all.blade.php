@@ -33,21 +33,13 @@
             @php
                 $no = 1;
             @endphp
-            @foreach ($kelas as $kelasItem)
+            @foreach ($kelas as $Kelas)
                 <tr>
 
                     <td>{{$no++}}</td>
                     <td>{{ $Kelas->kelas }}</td>
                     <td>
                         <a type="button" class="btn btn-primary" href="/kelas/detail/{{ $Kelas->id }}">Detail</a>
-                        <a type="button" class="btn btn-warning" href="/kelas/edit/{{ $Kelas->id }}"
-                            style="color: white"">Edit</a>
-                        <form action="/kelas/delete/{{ $Kelas->id }}" method="POST" style="display: inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger"
-                                onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
-                        </form>
                     </td>
                 </tr>
             @endforeach

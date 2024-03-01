@@ -21,19 +21,19 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Kelas::create([
-            'kelas_siswa' => '10 PPLG 1',
+            'kelas' => '10 PPLG 1',
         ]);
 
         Kelas::create([
-            'kelas_siswa' => '10 PPLG 2',
+            'kelas' => '10 PPLG 2',
         ]);
 
         Kelas::create([
-            'kelas_siswa' => '11 PPLG 1',
+            'kelas' => '11 PPLG 1',
         ]);
 
         Kelas::create([
-            'kelas_siswa' => '11 PPLG 2',
+            'kelas' => '11 PPLG 2',
         ]);
     }
 }

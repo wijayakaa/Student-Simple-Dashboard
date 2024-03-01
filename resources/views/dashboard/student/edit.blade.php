@@ -1,4 +1,4 @@
-@extends("layout.main")
+@extends('layout.partial.dashboard')
 @section("container")
 <form method="post" action="dashboard/student/update/{{$student->id}}">
     @csrf

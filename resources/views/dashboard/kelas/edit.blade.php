@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.partial.dashboard')
 
 @section('container')
     <h1>Edit Student</h1>
