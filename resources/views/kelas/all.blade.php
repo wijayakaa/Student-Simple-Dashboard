@@ -33,7 +33,7 @@
             @php
                 $no = 1;
             @endphp
-            @foreach ($kelas as $Kelas)
+            @foreach ($kelas as $kelasItem)
                 <tr>
 
                     <td>{{$no++}}</td>
