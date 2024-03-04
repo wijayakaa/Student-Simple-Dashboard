@@ -1,6 +1,4 @@
-@extends('layout.partial.dashboard')
-
-<style>
+@extends('layout.partial.dashboard')<style>
     .button {
         background-color: red;
         border: none;
@@ -18,7 +16,7 @@
 
 @section('container')
     <h1>Add Student</h1>
-    <form action="dashboard/student/add " method="post">
+    <form action="/dashboard/student/add " method="post">
         @csrf
         
         <div class="form-group">
@@ -37,10 +35,11 @@
         <div class="form-group">
             <label for="kelas">Kelas:</label>
             <select class="form-select" name="kelas_id">
-                @foreach ($kelas as $Kelas)
-                    <option name="kelas_id" value="{{ $Kelas->id }}">{{ $Kelas->kelas }}</option>
+                @foreach ($kelas as $kelas)
+                  <option value="{{ $kelas->id }}">{{ $kelas->kelas }}</option>
                 @endforeach
             </select>
+
         </div>
         <div class="form-group">
             <label for="alamat">Alamat:</label>
@@ -48,6 +47,6 @@
         </div>
 
         <button type="submit" class="btn btn-primary" style="margin-top: 20px; color: white">Add Student</button>
-        <a class="btn btn-danger" href="dashboard/student/all" style="margin-top: 20px; color:white">Back</a>
+        <a class="btn btn-danger" href="/dashboard/student/all" style="margin-top: 20px; color:white">Back</a>
     </form>
 @endsection

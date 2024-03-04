@@ -54,14 +54,15 @@ class DashboardController extends Controller
     }
 
     public function studentCreate() 
-    {
-        if(!Auth::check()) return redirect()->route('student.all');
+{
+    if(!Auth::check()) return redirect()->route('student.all');
 
-        return view ('dashboard.student.create', [
-            "title" => "Students",
-            "kelass" => Kelas::all()
-        ]);
-    }
+    return view ('dashboard.student.create', [
+        "title" => "Students",
+        "kelas" => Kelas::all() 
+    ]);
+}
+
 
     public function studentStore(Request $request)
     {
@@ -143,10 +144,11 @@ class DashboardController extends Controller
     public function kelasCreate() 
     {
         if(!Auth::check()) return redirect()->route('student.all');
-
-        return view ('dashboard.kelas.create', [
-            "title" => "Kelas",
-            "kelass" => kelas::all()
+        $kelas = Kelas::all();
+    
+        return view ('dashboard.student.create', [
+            "title" => "Students",
+            "kelas" => $kelas
         ]);
     }
 

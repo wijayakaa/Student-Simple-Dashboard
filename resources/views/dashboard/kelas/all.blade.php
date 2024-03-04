@@ -15,12 +15,13 @@
 @section('container')
     {{-- tempat content --}}
     <h1>Tabel Data Kelas</h1>
-    <a type="button" class="btn btn-primary" href="dashboard/kelas/create/" style="margin-bottom: 15px">Add Data</a>
+    <a type="button" class="btn btn-primary" href="/dashboard/kelas/create/" style="margin-bottom: 15px">Add Data</a>
     @if (session('success'))
         <div class="alert alert-success" role="alert">
             {{ session('success') }}
         </div>
     @endif
+
     <table class="table table-dark table-hover">
         <thead>
             <tr>
